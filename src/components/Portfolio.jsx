@@ -31,43 +31,36 @@ function Portfolio() {
             id: 1,
             logo: movie_maniac,
             name: "Movie Maniac",
-            link: "https://moviemaniac-919jjuctl-priyas-projects-46ef61df.vercel.app/"
+            link: "https://moviemaniac-919jjuctl-priyas-projects-46ef61df.vercel.app/",
+            technology: "React 19 (UI development),  Vite (Fast development and build),  ESLint (Linting and best practices), react's built-in state (useState, useContext), CSS or inline styles"
         },
-        // {
-        //     id: 1,
-        //     logo: admindashbord,
-        //     name: "Admin DashBoard",
-        //     link: "https://tic-tac-2b9hsals8-priyas-projects-46ef61df.vercel.app/"
-        // },
         {
             id: 2,
             logo: food_app,
             name: "Food Taste",
-            link: "https://fooddelivery-k2v0uzdkf-priyas-projects-46ef61df.vercel.app/"
+            link: "https://fooddelivery-k2v0uzdkf-priyas-projects-46ef61df.vercel.app/",
+            technology: "React 18 (UI development),  React Router (Navigation between pages), ESLint (Linting and best practices), React’s built-in state, CSS or inline styles"
         },
         {
             id: 3,
             logo: news_pic,
             name: "Search News",
-            link: "https://newswebsite-nbj0hboz3-priyas-projects-46ef61df.vercel.app/"
+            link: "https://newswebsite-nbj0hboz3-priyas-projects-46ef61df.vercel.app/",
+            technology: "React 19 (UI development), Create React App (CRA), Web Vitals (for measuring web performance), Fetch API"
         },
-        // {
-        //     id: 4,
-        //     logo: portfolio_pic,
-        //     name: "PortFolio Template",
-        //     link: "https://multiseach-81nagdhcz-priyas-projects-46ef61df.vercel.app/"
-        // },
         {
             id: 4,
             logo: tasktrek,
             name: "Task Trek",
-            link: "https://tasktrek-fs0a42in4-priyas-projects-46ef61df.vercel.app/"
+            link: "https://tasktrek-fs0a42in4-priyas-projects-46ef61df.vercel.app/",
+            technology: "React 18, Material UI (MUI), Emotion (for styling components in MUI), Vite"
         },
         {
             id: 5,
             logo: tictactoe,
             name: "Tic Tac Toe Game",
-            link: "https://tic-tac-2b9hsals8-priyas-projects-46ef61df.vercel.app/"
+            link: "https://tic-tac-2b9hsals8-priyas-projects-46ef61df.vercel.app/",
+            technology: "React 18, React DOM, Vite, CSS"
         },
     ]
     const basicworkcardItem = [
@@ -83,6 +76,13 @@ function Portfolio() {
     const handleClose = () => {
         setOpen(false);
         setSelectedProject(null);
+    };
+
+    const handleProjectLinkClick = (link) => {
+        handleClose(); // Close the modal first
+        setTimeout(() => {
+            window.open(link, "_blank", "noopener,noreferrer"); // Open link in new tab after closing modal
+        }, 300); // Delay to allow modal close animation (adjust timing if needed)
     };
 
     return (
@@ -152,36 +152,37 @@ function Portfolio() {
                 </div>
             </div>
             <div>
-                <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="child-modal-title"
-                    aria-describedby="child-modal-description"
+                <Modal open={open} onClose={handleClose} aria-labelledby="child-modal-title" aria-describedby="child-modal-description">
+                    <Box className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 w-96 mx-auto my-20">
+                        {selectedProject ? (
+                            <div className="w-full">
+                                <h2 id="child-modal-title" className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
+                                    Project Name: <span className="text-blue-600">{selectedProject.name}</span>
+                                </h2>
+                                <p id="child-modal-description" className="text-gray-600 dark:text-gray-300 mb-4">
+                                    <strong>Technology:</strong> {selectedProject.technology}
+                                </p>
 
-                >
-                    <Box sx={{ ...style, width: 400 }}>
-                        {
-                            selectedProject ? (
-                                <div className='w-[400px] h-[350px]'>
-                                    <h2 id="child-modal-title">Project Name: {selectedProject.name}</h2>
-                                    <p id="child-modal-description">
-                                        Technology : {""}
-                                    </p>
-                                    {/* <Button onClick={handleClose}>Project Link</Button> */}
-                                    <div
-                                        className='flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600"'
-                                    // className='flex   align-bottom justify-center'
+                                <div className="flex justify-between items-center mt-5">
+                                    <a
+                                        href={selectedProject.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 transition duration-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                        onClick={() => handleProjectLinkClick(selectedProject.link)}
                                     >
-                                        <a data-modal-hide="default-modal"
-                                            className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800'
-                                            // className='text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2'
-                                            href={selectedProject.link} target='_blank' >Project Link</a>
-                                        <button data-modal-hide="default-modal" type="button" className="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700" onClick={() => handleClose()}>Decline</button>
-                                    </div>
-
-                                </div>) : null
-                        }
-
+                                        Project Link
+                                    </a>
+                                    <button
+                                        type="button"
+                                        className="py-2.5 px-5 text-sm font-medium text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-blue-700 transition duration-300 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                                        onClick={handleClose}
+                                    >
+                                        Decline
+                                    </button>
+                                </div>
+                            </div>
+                        ) : null}
                     </Box>
                 </Modal>
             </div>
