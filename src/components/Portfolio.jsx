@@ -1,15 +1,10 @@
 import React, { useState } from 'react'
 
-import admindashbord from '../../public/admindashbord.jpg'
 import food_app from '../../public/food_app.jpg'
 import news_pic from '../../public/news_pic.jpg'
-import portfolio_pic from '../../public/portfolio_pic.jpg'
 import tasktrek from '../../public/task_trek.jpg'
-import curdoperation from '../../public/developer_male.jpg'
-import signuppage from '../../public/signup_pic.jpg'
-import multisearch from '../../public/multisearch.jpg'
 import tictactoe from '../../public/tic_tac_toe.jpg'
-import stepper from '../../public/stepper.jpg'
+import jewelWebsite from '../../public/jewelWebsite.jpg'
 import movie_maniac from '../../public/moviemaniac.jpg'
 
 import { Box, Modal } from '@mui/material'
@@ -52,7 +47,7 @@ function Portfolio() {
             id: 4,
             logo: tasktrek,
             name: "Task Trek",
-            link: "https://tasktrek-fs0a42in4-priyas-projects-46ef61df.vercel.app/",
+            link: "https://tasktrek-gk9w6xp4h-priyas-projects-46ef61df.vercel.app/",
             technology: "React 18, Material UI (MUI), Emotion (for styling components in MUI), Vite"
         },
         {
@@ -61,6 +56,13 @@ function Portfolio() {
             name: "Tic Tac Toe Game",
             link: "https://tic-tac-2b9hsals8-priyas-projects-46ef61df.vercel.app/",
             technology: "React 18, React DOM, Vite, CSS"
+        },
+         {
+            id: 6,
+            logo: jewelWebsite,
+            name: "Jewellery Website",
+            link: "https://jewel-website.vercel.app/",
+            technology: "💎 Jewel Website This project is a fully responsive Jewel Website built using ReactJS, HTML, CSS, and JavaScript. The website showcases elegant UI designs for displaying jewelry products with interactive sections like product details, pricing, and contact pages.  Modern UI/UX using React Components. Responsive design with CSS Flexbox & Grid. Product catalog with product detail pages. Navigation with React Router. Pricing, About Us, Our Story, and Contact sections. Clean and reusable code structure."
         },
     ]
     const basicworkcardItem = [
@@ -79,10 +81,10 @@ function Portfolio() {
     };
 
     const handleProjectLinkClick = (link) => {
-        handleClose(); // Close the modal first
+        handleClose(); 
         setTimeout(() => {
-            window.open(link, "_blank", "noopener,noreferrer"); // Open link in new tab after closing modal
-        }, 300); // Delay to allow modal close animation (adjust timing if needed)
+            window.open(link, "_blank", "noopener,noreferrer"); 
+        }, 300); 
     };
 
     return (

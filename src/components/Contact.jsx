@@ -41,7 +41,6 @@ function Contact() {
             <div className='flex flex-col justify-center items-center mt-5'>
                 <form
                     onSubmit={handleSubmit(onSubmit)}
-                    // action='https://getform.io/f/blllkpob' method='POST'
                     className='bg-slate-200 w-96 px-8 py-6 rounded-xl'>
                     <h1 className='font-semibold text-xl mb-4'>Send your Message</h1>
                     <div className='flex flex-col mb-4'>

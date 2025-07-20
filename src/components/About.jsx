@@ -79,7 +79,6 @@ function About() {
                                         </button>
                                         {index > 0 && <button
                                             onClick={handleBack}
-                                            // sx={{ mt: 1, mr: 1 }}
                                             className='bg-blue-500 hover:bg-blue-700 font-bold text-white rounded px-4 py-2'
                                         >
                                             Back
